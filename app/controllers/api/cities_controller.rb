@@ -10,6 +10,7 @@ class Api::CitiesController < ApplicationController
 
 			@city.name = parsed["city"]["name"]
 			@city.temperature = parsed["list"][0]["main"]["temp"]
+			@city.conditions = parsed["list"][0]["weather"][0]["description"]
 			@city.image = "http://blog.guesttoguest.com/wp-content/uploads/2013/11/rio-de-janeiro.jpeg"
 			@city.save!
 			
