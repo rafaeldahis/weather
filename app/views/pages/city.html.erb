@@ -5,10 +5,13 @@
 	<p id="conditions"></p>
 </div>
 
-
 <%= javascript_tag do %>
 	var pathArray = window.location.pathname.split( '/' );
-	$.ajax("/api/cities/"+pathArray[2],{
+
+	city = pathArray[2];
+	if(!city){city = "SanFrancisco"}   
+
+	$.ajax("/api/cities/"+city,{
 	success: function(data){
 	  $('#city_name').text(data['name']);
 	  K = data['temperature'];
@@ -16,7 +19,12 @@
 	  C = Math.round((F-32)*5/9)
 	  $('#temperature').text(F + ' F / ' + C + ' C');
 	  $('#conditions').text(data['conditions']);
-	}
+	},
+	error: 
+	function(data){
+	  $('#city_name').text("Wrong city");
+	  $('#temperature').text("try typing something else");
+	 }
 	});
 
 <% end %>
