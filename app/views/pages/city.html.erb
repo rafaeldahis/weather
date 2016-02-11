@@ -1,9 +1,13 @@
 
-<div class="container">
+<div class="container card">
 	<h1 id="city_name"></h1>
 	<h2 id="temperature"></h2>
 	<p id="conditions"></p>
 </div>
+
+<div class="container info">
+	<p>Try <strong>/cities/CITYNAME</strong> to see weather conditions for a specific city.<br/>To access the api response: <strong>/api/cities/CITYNAME</strong>.<br/>Weather information is retrieved from OpenWeathermap API.</p>
+</div> 
 
 <%= javascript_tag do %>
 	var pathArray = window.location.pathname.split( '/' );
