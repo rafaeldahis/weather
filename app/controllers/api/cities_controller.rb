@@ -1,4 +1,4 @@
-class Api::CitiesController < ApplicationController
+class API::CitiesController < ApplicationController
 	def show
 
 		url = 'http://api.openweathermap.org/data/2.5/forecast/city?q='+params[:id]+'&APPID=4f430a5d7c4d95319f3e704ea29aa5a2'
